@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tastebite - Food Recipe
 
-## Getting Started
+**Author:** Ahmed Helal  
+**Email:** 1ahmedhelal1@gmail.com  
+**Phone:** +201551610991
 
-First, run the development server:
+## Description
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Tastebite is a web application designed for food lovers to discover, share, and enjoy recipes from around the world. With a clean interface and user-friendly features, Tastebite provides detailed recipes with step-by-step instructions, ingredient lists, and cooking tips to make every meal a culinary success. Perfect for both beginners and seasoned cooks, this platform aims to inspire creativity in the kitchen and make cooking accessible to everyone.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Frontend:** Next.js, React, Tailwind CSS
+- **API Integration:** Axios
+- **Other Tools:** ESLint, Prettier, Vercel for Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Features
 
-## Learn More
+- Browse and search for recipes across different cuisines
+- Step-by-step instructions for each recipe
+- User authentication for recipe saving and personalized recommendations
+- Responsive design for mobile and desktop
 
-To learn more about Next.js, take a look at the following resources:
+## Prerequisites
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Environment variables configured in a `.env` file (see `.env.example`)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Setup
 
-## Deploy on Vercel
+Follow these steps to set up the project locally:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Clone the Repository**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```bash
+   git clone https://github.com/HELAL15/tastebite
+   cd tastebite
+   ```
+
+2. **Install Dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Configure Environment Variables**
+
+   Create a `.env` file in the root directory and add the following variables:
+
+   ```
+
+   ```
+
+4. **Run the Development Server**
+
+   ```bash
+   npm run dev
+   ```
+
+   The app should now be running on [http://localhost:3000](http://localhost:3000).
+
+5. **Build and Run for Production**
+   ```bash
+   npm run build
+   npm start
+   ```
+
+## Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to check out the issues page or submit a pull request.
+
+---
