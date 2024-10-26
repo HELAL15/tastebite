@@ -10,14 +10,12 @@ interface IProps {
 /**
  * ==> Component
  */
-const Header: FC<IProps> = ({  }) => {
+const Button: FC<IProps> = ({  }) => {
   return (
     <>
-    <header>
-      <h1>header</h1>
-    </header>
+
     </>
   );
 }
 
-export default memo(Header);
+export default memo(Button);

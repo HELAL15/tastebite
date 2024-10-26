@@ -1,9 +1,16 @@
+import Categories from "@/components/Categories";
+import Hero from "@/components/Hero";
+import LatestRecipes from "@/components/LatestRecipes";
+import SuperDeleciuos from "@/components/SuperDeleciuos";
 
 
 export default function Home() {
   return (
     <>
-      <h1>hello next</h1>
+      <Hero/>
+      <Categories/>
+      <SuperDeleciuos/>
+      <LatestRecipes/>
     </>
   );
 }

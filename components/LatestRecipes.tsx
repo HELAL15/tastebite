@@ -1,6 +1,7 @@
-import RecipeCard from "@/components/ui/RecipeCard";
-import { Metadata } from "next";
 import { FC } from "react";
+import SecTitle from "./ui/SecTitle";
+import RecipeCard from "./ui/RecipeCard";
+
 
 /**
  * ==> props interface
@@ -8,17 +9,16 @@ import { FC } from "react";
 interface IProps {
 
 }
-export const metadata: Metadata = {
-  title: "Tastebite - recipes",
-};
+
 /**
  * ==> Component
  */
-const page: FC<IProps> = ({  }) => {
+const LatestRecipes: FC<IProps> = ({  }) => {
   return (
     <>
     <section>
       <div className="container">
+        <SecTitle title="latest recipes" />
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           <RecipeCard/>
           <RecipeCard/>
@@ -47,4 +47,4 @@ const page: FC<IProps> = ({  }) => {
   );
 }
 
-export default page;
+export default LatestRecipes;
