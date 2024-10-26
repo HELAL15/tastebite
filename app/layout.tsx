@@ -5,6 +5,8 @@ import Footer from "@/components/layouts/Footer";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import NextTopLoader from "nextjs-toploader";
+import ToastProvider from "@/providers/ToastProvider";
 
 
 
@@ -21,9 +23,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <NextTopLoader color="#ff642f" height={4} showSpinner={false}  />
         <Header/>
         <main>
-          {children}
+          <ToastProvider>
+            {children}
+          </ToastProvider>
         </main>
         <Footer/>
       </body>

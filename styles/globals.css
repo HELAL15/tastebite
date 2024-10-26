@@ -21,7 +21,7 @@ section{
 }
 
 .hero {
-  height: calc(100vh - 232.5px);
+  height: calc(100vh - 221px);
   
 }
 @media (max-width: 768px) {
