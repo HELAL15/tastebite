@@ -6,6 +6,8 @@ import { CiSearch } from "react-icons/ci";
 import { FaBars } from "react-icons/fa";
 import { SlSocialFacebook, SlSocialInstagram, SlSocialTwitter, SlSocialYoutube } from "react-icons/sl";
 import { toast } from "react-toastify";
+import MainButton from "../ui/Button";
+import { usePathname } from "next/navigation";
 
 
 /**
@@ -19,9 +21,18 @@ interface IProps {
  * ==> Component
  */
 const Header: FC<IProps> = ({  }) => {
+
+  const path = usePathname()
+
+
+  const handleClick = ()=>{
+ 
+      toast("done")
+    
+  }
   return (
     <>
-      <div className="bg-primary-100 hidden md:flex items-center justify-center py-3">
+      <div className="bg-primary-200 hidden md:flex items-center justify-center py-3">
         <div className="container flex items-center justify-between">
           <div className="icons flex items-center gap-6">
           <Link href={"/"}  target="_blank" className="text-base font-bold w-8 h-8 rounded-full bg-white duration-300 hover:bg-primary hover:text-white grid place-items-center">
@@ -43,11 +54,9 @@ const Header: FC<IProps> = ({  }) => {
               <CiSearch />
               </i>
             </button>
-            <button onClick={()=>{
-              toast("done")
-            }} className="px-10 py-1 text-lg font-semibold border border-black rounded">
-              login
-            </button>
+            <Link href="/login" className="btn main-btn" >
+              <span className="content">login</span>
+            </Link>
           </div>
         </div>
       </div>
@@ -72,28 +81,38 @@ const Header: FC<IProps> = ({  }) => {
         <nav className="hidden md:flex">
           <ul className="flex items-center gap-6">
             <li>
-              <Link href={"/"} className="text-xl font-medium duration-300 text-secondary-100 hover:text-primary" >
+              <Link href={"/"} className={`text-xl font-medium duration-300
+                hover:text-primary 
+                ${path == "/" ? "text-primary" : "text-secondary-100"} `} >
                 home
               </Link>
             </li>
             <li>
-              <Link href={"/recipes"} className="text-xl font-medium duration-300 text-secondary-100 hover:text-primary" >
+              <Link href={"/recipes"} className={`text-xl font-medium duration-300
+                hover:text-primary 
+                ${path == "/recipes" ? "text-primary" : "text-secondary-100"} `} >
                 Recipes
               </Link>
             </li>
             <li>
-              <Link href={"/categories"} className="text-xl font-medium duration-300 text-secondary-100 hover:text-primary" >
+              <Link href={"/categories"} className={`text-xl font-medium duration-300
+                 hover:text-primary 
+                 ${path == "/categories" ? "text-primary" : "text-secondary-100"} `} >
                 categories
               </Link>
             </li>
             <li>
-              <Link href={"/about"} className="text-xl font-medium duration-300 text-secondary-100 hover:text-primary" >
+              <Link href={"/about"} className={`text-xl font-medium duration-300
+                  hover:text-primary
+                  ${path == "/about" ? "text-primary" : "text-secondary-100"} `} >
                 about
               </Link>
             </li>
             <li>
-              <Link href={"/about"} className="text-xl font-medium duration-300 text-secondary-100 hover:text-primary" >
-                blog
+              <Link href={"/blogs"} className={`text-xl font-medium duration-300 
+                 hover:text-primary
+                  ${path == "/blogs" ? "text-primary" : "text-secondary-100"} `} >
+                blogs
               </Link>
             </li>
           </ul>

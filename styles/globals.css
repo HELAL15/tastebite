@@ -11,14 +11,76 @@
 }
 
 body {
+  margin: 0;
   font-family: 'Playfair', sans-serif;
-  @apply bg-secondary-300;
+  @apply bg-secondary-300 capitalize;
 }
 
 section{
-  padding: 4rem 0;
-
+  @apply py-12 md:py-16 ;
 }
+
+
+
+/* btn  */
+
+.btn {
+  position: relative;
+  display: inline-flex;
+  padding: 0.25rem 3rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border: 1px solid black;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  transition: background-color 0.3s;
+}
+
+.main-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  transition: left 0.3s;
+}
+
+.main-btn:hover::after {
+  left: 0;
+}
+
+.main-btn .content {
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s;
+}
+
+.main-btn:not(:disabled):hover .content {
+  color: white;
+}
+
+.btn:disabled {
+  background-color: #E2E8F0; 
+  color: rgba(0, 0, 0, 0.3);
+  border-color: #E2E8F0;
+  cursor: not-allowed;
+}
+
+.btn:disabled::after {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
 
 .hero {
   height: calc(100vh - 221px);
@@ -34,6 +96,7 @@ section{
     height: 300px;
   }
 }
+
 .shadow-overlay {
   position: relative;
 }
@@ -49,6 +112,31 @@ section{
   pointer-events: none; 
   z-index: 0;
 }
+
+
+
+
+
+.recipes:hover .card:not(:hover) .img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 100, 47, 0.3);
+  transition: .3s;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -ms-transition: .3s;
+  -o-transition: .3s;
+}
+
+
+
+
+/* swiper style  */
+
 .swiper-button-prev, .swiper-button-next{
   
   @apply bg-white !w-8 !h-8 md:!w-10 md:!h-10 rounded-full grid place-items-center duration-300  hover:bg-primary;
@@ -63,7 +151,7 @@ section{
 }
 
 .swiper-pagination-bullet {
-  @apply bg-white !w-3 !h-3 rounded-full duration-300 hover:bg-primary;
+  @apply  !w-3 !h-3 rounded-full duration-300 !bg-primary;
 }
 .swiper-pagination-bullet.swiper-pagination-bullet-active{
   @apply bg-primary;

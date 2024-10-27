@@ -1,21 +1,35 @@
-import { FC, memo } from "react";
+import { FC } from "react";
 
-/**
- * ==> props interface
- */
 interface IProps {
-
+  title: string;
+  icon?: React.ReactNode;
+  position?: string;
+  onClick?: () => void;
+  cx?: string;
+  disabled?: boolean;
 }
 
-/**
- * ==> Component
- */
-const Button: FC<IProps> = ({  }) => {
+const MainButton: FC<IProps> = ({
+  title,
+  icon,
+  position,
+  onClick,
+  cx = '',
+  disabled,
+}) => {
   return (
-    <>
-
-    </>
+    <button
+      className={`btn main-btn group ${cx}`}
+      onClick={onClick}
+      disabled={disabled}
+    >
+      <span className={`content ${disabled ? 'text-black/30' : 'group-hover:text-secondary-200'}`}>
+        {position === 'left' && icon}
+        {title}
+        {position === 'right' && icon}
+      </span>
+    </button>
   );
-}
+};
 
-export default memo(Button);
+export default MainButton;

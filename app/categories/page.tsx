@@ -1,4 +1,5 @@
 import CategoryCard from "@/components/ui/CategoryCard";
+import PageHeading from "@/components/ui/PageHeading";
 import { Metadata } from "next";
 import { FC } from "react";
 
@@ -19,7 +20,8 @@ const page: FC<IProps> = ({  }) => {
     <>
          <section>
           <div className="container">
-            <div className="grid grid-cols-2 md:grid-cols-6 gap-6 ">
+            <PageHeading title="categories" />
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 ">
               <CategoryCard img='pasta.jpeg' title="pasta" />
               <CategoryCard img='pizza.webp' title="pizza" />
               <CategoryCard img='vegan.jpeg' title="vegan" />

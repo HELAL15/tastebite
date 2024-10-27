@@ -1,3 +1,5 @@
+
+import PageHeading from "@/components/ui/PageHeading";
 import RecipeCard from "@/components/ui/RecipeCard";
 import { Metadata } from "next";
 import { FC } from "react";
@@ -15,31 +17,20 @@ export const metadata: Metadata = {
  * ==> Component
  */
 const page: FC<IProps> = ({  }) => {
+
+
+
+
+
   return (
     <>
     <section>
-      <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
+      <div className="container ">
+        <PageHeading title="recipes" />
+        <div className="recipes grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {Array.from({ length: 20 }, (_, index) => (
+                <RecipeCard key={index} />
+              ))}
         </div>
       </div>
     </section>
