@@ -1,24 +1,13 @@
-import { Metadata } from "next";
-import { FC } from "react";
+import { Metadata } from 'next';
 
-/**
- * ==> props interface
- */
-interface IProps {
-
-}
 export const metadata: Metadata = {
-  title: "Tastebite - register new account",
+  title: 'Tastebite - register new account',
 };
 /**
  * ==> Component
  */
-const page: FC<IProps> = ({  }) => {
-  return (
-    <>
-
-    </>
-  );
-}
+const page = ({}) => {
+  return <></>;
+};
 
 export default page;

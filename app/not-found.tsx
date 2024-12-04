@@ -1,16 +1,7 @@
-import { FC,  } from "react";
-
-/**
- * ==> props interface
- */
-interface IProps {
-
-}
-
 /**
  * ==> Component
  */
-const notFound: FC<IProps> = ({  }) => {
+const notFound = ({}) => {
   return (
     <>
       <div className="container flex items-center justify-center py-60">
@@ -18,6 +9,6 @@ const notFound: FC<IProps> = ({  }) => {
       </div>
     </>
   );
-}
+};
 
 export default notFound;

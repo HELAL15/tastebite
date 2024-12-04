@@ -1,50 +1,41 @@
-import { FC } from "react";
-import SecTitle from "./ui/SecTitle";
-import RecipeCard from "./ui/RecipeCard";
-
-
-/**
- * ==> props interface
- */
-interface IProps {
-
-}
+import SecTitle from './ui/SecTitle';
+import RecipeCard from './ui/RecipeCard';
 
 /**
  * ==> Component
  */
-const LatestRecipes: FC<IProps> = ({  }) => {
+const LatestRecipes = ({}) => {
   return (
     <>
-    <section>
-      <div className="container">
-        <SecTitle title="latest recipes" />
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
-          <RecipeCard/>
+      <section>
+        <div className="container">
+          <SecTitle title="latest recipes" />
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <RecipeCard />
+            <RecipeCard />
+            <RecipeCard />
+            <RecipeCard />
+            <RecipeCard />
+            <RecipeCard />
+            <RecipeCard />
+            <RecipeCard />
+            <RecipeCard />
+            <RecipeCard />
+            <RecipeCard />
+            <RecipeCard />
+            <RecipeCard />
+            <RecipeCard />
+            <RecipeCard />
+            <RecipeCard />
+            <RecipeCard />
+            <RecipeCard />
+            <RecipeCard />
+            <RecipeCard />
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
     </>
   );
-}
+};
 
 export default LatestRecipes;
