@@ -77,7 +77,7 @@ const page = () => {
       </section>
 
       <section className="recipe_details pt-0">
-        <div className="container grid grid-cols-12 max-md:gap-8 divide max-md:divide-y-2 lg:divide-x-2 divide-slate-300">
+        <div className="container grid grid-cols-12 max-md:gap-y-8 divide max-md:divide-y-2 lg:divide-x-2 divide-slate-300">
           <div className="col-span-12 lg:col-span-8 space-y-10 pr-8">
             <div className="space-y-6">
               <h3 className="text-3xl font-bold mb-6">ingredients</h3>
