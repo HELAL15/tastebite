@@ -18,7 +18,7 @@ import { useTranslations } from 'next-intl';
  */
 const Header = ({}) => {
   const path = usePathname();
-  const t = useTranslations();
+  const t = useTranslations('nav');
 
   return (
     <>
@@ -83,7 +83,7 @@ const Header = ({}) => {
               className="object-contain mx-auto h-[30px] md:h-[50px] w-[100px] md:w-[150px] lg:w-[200px]"
               width={0}
               height={0}
-              sizes="100vh"
+              sizes="100"
             />
           </Link>
           <nav className="hidden md:flex">
@@ -91,56 +91,55 @@ const Header = ({}) => {
               <li>
                 <Link
                   href={'/'}
-                  className={`text-xl font-medium duration-300
+                  className={`text-base md:text-lg font-medium duration-300
                 hover:text-primary 
                 ${path == '/' ? 'text-primary' : 'text-secondary-100'} `}
                 >
-                  home
+                  {t('home')}
                 </Link>
               </li>
               <li>
                 <Link
                   href={'/recipes'}
-                  className={`text-xl font-medium duration-300
+                  className={`text-base md:text-lg font-medium duration-300
                 hover:text-primary 
                 ${path == '/recipes' ? 'text-primary' : 'text-secondary-100'} `}
                 >
-                  Recipes
+                  {t('recipes')}
                 </Link>
               </li>
               <li>
                 <Link
                   href={'/categories'}
-                  className={`text-xl font-medium duration-300
+                  className={`text-base md:text-lg font-medium duration-300
                  hover:text-primary 
                  ${
                    path == '/categories' ? 'text-primary' : 'text-secondary-100'
                  } `}
                 >
-                  categories
+                  {t('categories')}
                 </Link>
               </li>
               <li>
                 <Link
                   href={'/about'}
-                  className={`text-xl font-medium duration-300
+                  className={`text-base md:text-lg font-medium duration-300
                   hover:text-primary
                   ${path == '/about' ? 'text-primary' : 'text-secondary-100'} `}
                 >
-                  about
+                  {t('about')}
                 </Link>
               </li>
               <li>
                 <Link
                   href={'/blogs'}
-                  className={`text-xl font-medium duration-300 
-                 hover:text-primary
+                  className={`text-base md:text-lg font-medium duration-300 
+                hover:text-primary
                   ${path == '/blogs' ? 'text-primary' : 'text-secondary-100'} `}
                 >
-                  blogs
+                  {t('blog')}
                 </Link>
               </li>
-              <li>{t('title')}</li>
             </ul>
           </nav>
           <div className="flex md:hidden">

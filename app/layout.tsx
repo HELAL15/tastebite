@@ -9,6 +9,7 @@ import NextTopLoader from 'nextjs-toploader';
 import ToastProvider from '@/providers/ToastProvider';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
+import QueryProvider from '@/providers/QueryProvider';
 
 export const metadata: Metadata = {
   title: 'Tastebite - Food Recipe',
@@ -25,16 +26,19 @@ export default async function RootLayout({
 
   const messages = await getMessages();
   const dir = locale === 'ar' ? 'rtl' : 'ltr';
+
   return (
     <html lang={locale} dir={dir}>
       <body>
-        <NextTopLoader color="#ff642f" height={4} showSpinner={false} />
         <NextIntlClientProvider messages={messages}>
-          <Header />
-          <main>
-            <ToastProvider>{children}</ToastProvider>
-          </main>
-          <Footer />
+          <QueryProvider>
+            <NextTopLoader color="#ff642f" height={4} showSpinner={false} />
+            <Header />
+            <main>
+              <ToastProvider>{children}</ToastProvider>
+            </main>
+            <Footer />
+          </QueryProvider>
         </NextIntlClientProvider>
       </body>
     </html>

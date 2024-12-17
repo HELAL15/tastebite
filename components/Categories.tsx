@@ -10,7 +10,7 @@ const Categories = ({}) => {
       <section>
         <div className="container">
           <SecTitle title="popular category" />
-          <div className="grid grid-cols-2 md:grid-cols-6 gap-6 ">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 ">
             <CategoryCard img="pasta.jpeg" title="pasta" />
             <CategoryCard img="pizza.webp" title="pizza" />
             <CategoryCard img="vegan.jpeg" title="vegan" />

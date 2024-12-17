@@ -17,7 +17,7 @@ const DeliciousCard = ({}) => {
             alt="food"
             width={0}
             height={0}
-            sizes="300px"
+            sizes="100"
             className=" group-hover:scale-110 duration-300 w-full h-full object-cover"
           />
         </div>

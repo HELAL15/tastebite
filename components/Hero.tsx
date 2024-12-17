@@ -47,7 +47,7 @@ const Hero = ({}) => {
             <Image
               src="/header2.jpeg"
               alt="slider"
-              sizes="100vh"
+              sizes="100"
               width={0}
               height={0}
               loading="eager"
@@ -73,7 +73,7 @@ const Hero = ({}) => {
             <Image
               src="/header2.jpeg"
               alt="slider"
-              sizes="100vh"
+              sizes="100"
               width={0}
               height={0}
               loading="eager"
@@ -99,7 +99,7 @@ const Hero = ({}) => {
             <Image
               src="/header2.jpeg"
               alt="slider"
-              sizes="100vh"
+              sizes="100"
               width={0}
               height={0}
               loading="eager"
@@ -118,7 +118,6 @@ const Hero = ({}) => {
           </div>
         </SwiperSlide>
       </Swiper>
-      <h1>{t('title')}</h1>
     </>
   );
 };

@@ -1,13 +1,103 @@
-import { Metadata } from 'next';
+'use client';
 
-export const metadata: Metadata = {
-  title: 'Tastebite - login to your account',
-};
+import FormControl from '@/components/ui/FormControl';
+import { Form, Formik } from 'formik';
+import { object, string } from 'yup';
+import { useMutation } from '@tanstack/react-query';
+import { useRouter } from 'next/navigation';
+
+interface IProps {
+  account_type: string | undefined;
+  email: string | undefined;
+  password: string | undefined;
+  message?: string | undefined;
+}
 /**
  * ==> Component
  */
-const page = ({}) => {
-  return <></>;
+const Page = () => {
+  const initialValues = {
+    email: '',
+    password: '',
+    account_type: 'user'
+  };
+
+  const validationSchema = object({
+    email: string().email('Invalid email format').required('Email is required'),
+    password: string()
+      .min(6, 'Password must be at least 6 characters')
+      .required('Password is required'),
+    account_type: string().required('Account type is required')
+  });
+
+  const { mutate } = useMutation<IProps, Error, IProps>({
+    mutationFn: async (newSetting) => {
+      const response = await fetch(
+        'https://backend.smartvision4p.com/ecommerce-multivendor/public/api/user/login',
+        {
+          method: 'POST',
+          body: JSON.stringify(newSetting),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      );
+      return response.json();
+    },
+    onSuccess: (responseData) => {
+      console.log('Login Successful:', responseData);
+      // alert(responseData.message || 'Login successful!');
+    },
+    onError: (err) => {
+      console.error('Error:', err.message);
+      alert('Login failed. Please try again.');
+    }
+  });
+
+  const router = useRouter();
+
+  return (
+    <section>
+      <div className="container grid place-items-center">
+        <div className="w-full max-w-xl bg-primary-200 rounded p-8">
+          <h1 className="text-3xl font-bold text-center mb-6">Login</h1>
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={(values, { setSubmitting, resetForm }) => {
+              mutate(values, {
+                onSettled: () => {
+                  setSubmitting(false);
+                  resetForm();
+                  console.log(values);
+                  router.push('/');
+                }
+              });
+            }}
+          >
+            {({ isValid, isSubmitting }) => (
+              <Form className="space-y-4">
+                {/* Email Field */}
+                <FormControl name="email" type="email" />
+
+                {/* Password Field */}
+                <FormControl name="password" type="password" />
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  disabled={!isValid || isSubmitting}
+                  className="mt-4 px-4 py-2 bg-primary/90 hover:bg-primary text-white rounded disabled:bg-slate-500 disabled:cursor-not-allowed "
+                >
+                  {isSubmitting ? 'Submitting...' : 'Submit'}
+                </button>
+              </Form>
+            )}
+          </Formik>
+        </div>
+      </div>
+    </section>
+  );
 };
 
-export default page;
+export default Page;

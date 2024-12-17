@@ -9,8 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.62.7",
+    "@tanstack/react-query-devtools": "^5.62.7",
     "autoprefixer": "^10.4.20",
     "axios": "^1.7.7",
+    "formik": "^2.4.6",
     "js-cookie": "^3.0.5",
     "next": "15.0.1",
     "next-intl": "^3.26.1",
@@ -19,7 +22,8 @@
     "react-dom": "19.0.0-rc-69d4b800-20241021",
     "react-icons": "^5.3.0",
     "react-toastify": "^10.0.6",
-    "swiper": "^11.1.14"
+    "swiper": "^11.1.14",
+    "yup": "^1.6.0"
   },
   "devDependencies": {
     "@types/js-cookie": "^3.0.6",

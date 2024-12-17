@@ -2,6 +2,7 @@ import Cookies from 'js-cookie';
 import { useLocale } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
 import React from 'react';
+import { AiOutlineGlobal } from 'react-icons/ai';
 
 const LangChange = () => {
   const router = useRouter();
@@ -16,9 +17,21 @@ const LangChange = () => {
   return (
     <>
       {locale === 'ar' ? (
-        <button onClick={() => setLocale('en')}>lang en</button>
+        <button
+          className="flex items-center gap-1"
+          onClick={() => setLocale('en')}
+        >
+          en
+          <AiOutlineGlobal className="text-xl" />
+        </button>
       ) : (
-        <button onClick={() => setLocale('ar')}>lang ar</button>
+        <button
+          className="flex items-center gap-1"
+          onClick={() => setLocale('ar')}
+        >
+          العربية
+          <AiOutlineGlobal className="text-xl" />
+        </button>
       )}
     </>
   );

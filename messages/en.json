@@ -1,3 +1,12 @@
 {
-  "title" : "hello world"
+  "title" : "hello world",
+  "nav":{
+    "home":"home",
+    "about":"about",
+    "recipes":"recipes",
+    "categories":"categories",
+    "blog":"blog"
+  },
+  "email":"email",
+  "password":"password"
 }
