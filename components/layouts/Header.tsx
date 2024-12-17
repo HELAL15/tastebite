@@ -7,15 +7,18 @@ import {
   SlSocialFacebook,
   SlSocialInstagram,
   SlSocialTwitter,
-  SlSocialYoutube,
+  SlSocialYoutube
 } from 'react-icons/sl';
 import { usePathname } from 'next/navigation';
+import LangChange from '../ui/LangChange';
+import { useTranslations } from 'next-intl';
 
 /**
  * ==> Component
  */
 const Header = ({}) => {
   const path = usePathname();
+  const t = useTranslations();
 
   return (
     <>
@@ -52,6 +55,7 @@ const Header = ({}) => {
             </Link>
           </div>
           <div className="actions flex items-center gap-6">
+            <LangChange />
             <button>
               <i className="text-3xl font-bold">
                 <CiSearch />
@@ -136,6 +140,7 @@ const Header = ({}) => {
                   blogs
                 </Link>
               </li>
+              <li>{t('title')}</li>
             </ul>
           </nav>
           <div className="flex md:hidden">
