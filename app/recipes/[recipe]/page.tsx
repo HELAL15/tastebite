@@ -9,7 +9,7 @@ import { FiCalendar } from 'react-icons/fi';
 import { LuShare } from 'react-icons/lu';
 
 export const metadata: Metadata = {
-  title: 'recipes - recipe name',
+  title: 'recipes - recipe name'
 };
 /**
  * ==> Component
@@ -77,25 +77,25 @@ const page = () => {
       </section>
 
       <section className="recipe_details pt-0">
-        <div className="container grid grid-cols-12 max-md:gap-y-8 divide max-md:divide-y-2 lg:divide-x-2 divide-slate-300">
+        <div className="container grid grid-cols-12 max-md:gap-y-8 rtl:divide-x-reverse divide max-md:divide-y-2 lg:divide-x-2 divide-slate-300">
           <div className="col-span-12 lg:col-span-8 space-y-10 pr-8">
             <div className="space-y-6">
               <h3 className="text-3xl font-bold mb-6">ingredients</h3>
               <div className="cat">
                 <h4 className="head text-xl font-bold">for the crust</h4>
                 <ul className="space-y-2 mt-2">
-                  <li className="pl-8 text-base font-semibold flex items-center relative before:absolute before:left-0 before:w-5 before:h-5 before:rounded-full before:border before:border-black">
+                  <li className="px-8 text-base font-semibold flex items-center relative before:absolute before:inset-x-0 before:w-5 before:h-5 before:rounded-full before:border before:border-black">
                     Lorem, ipsum dolor.
                   </li>
-                  <li className="pl-8 text-base font-semibold flex items-center relative before:absolute before:left-0 before:w-5 before:h-5 before:rounded-full before:border before:border-black">
-                    Lorem, ipsum dolor.
-                  </li>
-
-                  <li className="pl-8 text-base font-semibold flex items-center relative before:absolute before:left-0 before:w-5 before:h-5 before:rounded-full before:border before:border-black">
+                  <li className="px-8 text-base font-semibold flex items-center relative before:absolute before:inset-x-0 before:w-5 before:h-5 before:rounded-full before:border before:border-black">
                     Lorem, ipsum dolor.
                   </li>
 
-                  <li className="pl-8 text-base font-semibold flex items-center relative before:absolute before:left-0 before:w-5 before:h-5 before:rounded-full before:border before:border-black">
+                  <li className="px-8 text-base font-semibold flex items-center relative before:absolute before:inset-x-0 before:w-5 before:h-5 before:rounded-full before:border before:border-black">
+                    Lorem, ipsum dolor.
+                  </li>
+
+                  <li className="px-8 text-base font-semibold flex items-center relative before:absolute before:inset-x-0 before:w-5 before:h-5 before:rounded-full before:border before:border-black">
                     Lorem, ipsum dolor.
                   </li>
                 </ul>
@@ -104,40 +104,40 @@ const page = () => {
                 <h4 className="head text-xl font-bold">for the cheesecake</h4>
                 <ul className="space-y-2 mt-2">
                   <li
-                    className="pl-8 text-base font-semibold flex items-center 
-                relative before:absolute before:left-0 
+                    className="px-8 text-base font-semibold flex items-center 
+                relative before:absolute before:inset-x-0 
                 before:w-5 before:h-5 before:rounded-full 
                 before:border before:border-black"
                   >
                     Lorem, ipsum dolor. Lorem, ipsum dolor.
                   </li>
                   <li
-                    className="pl-8 text-base font-semibold flex items-center 
-                relative before:absolute before:left-0 
+                    className="px-8 text-base font-semibold flex items-center 
+                relative before:absolute before:inset-x-0 
                 before:w-5 before:h-5 before:rounded-full 
                 before:border before:border-black"
                   >
                     Lorem, ipsum dolor. Lorem, ipsum dolor.
                   </li>
                   <li
-                    className="pl-8 text-base font-semibold flex items-center 
-                relative before:absolute before:left-0 
+                    className="px-8 text-base font-semibold flex items-center 
+                relative before:absolute before:inset-x-0 
                 before:w-5 before:h-5 before:rounded-full 
                 before:border before:border-black"
                   >
                     Lorem, ipsum dolor. Lorem, ipsum dolor.
                   </li>
                   <li
-                    className="pl-8 text-base font-semibold flex items-center 
-                relative before:absolute before:left-0 
+                    className="px-8 text-base font-semibold flex items-center 
+                relative before:absolute before:inset-x-0 
                 before:w-5 before:h-5 before:rounded-full 
                 before:border before:border-black"
                   >
                     Lorem, ipsum dolor. Lorem, ipsum dolor.
                   </li>
                   <li
-                    className="pl-8 text-base font-semibold flex items-center 
-                relative before:absolute before:left-0 
+                    className="px-8 text-base font-semibold flex items-center 
+                relative before:absolute before:inset-x-0 
                 before:w-5 before:h-5 before:rounded-full 
                 before:border before:border-black"
                   >
@@ -167,7 +167,7 @@ const page = () => {
               </ul>
             </div>
           </div>
-          <div className="col-span-12 lg:col-span-4 max-md:pt-8 lg:pl-8">
+          <div className="col-span-12 lg:col-span-4 max-md:pt-8 lg:px-8">
             <div className="bg-gray-200 px-6 py-8 rounded space-y-4">
               <h4 className="title text-3xl font-semibold">nutrition facts</h4>
               <ul className="items divide divide-y-2 divide-slate-300">

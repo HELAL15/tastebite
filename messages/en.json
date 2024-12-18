@@ -5,7 +5,8 @@
     "about":"about",
     "recipes":"recipes",
     "categories":"categories",
-    "blog":"blog"
+    "blog":"blog",
+    "profile" : "profile"
   },
   "email":"email",
   "password":"password"

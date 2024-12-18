@@ -3,7 +3,7 @@ import RecipeCard from '@/components/ui/RecipeCard';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Tastebite - recipes',
+  title: 'Tastebite - recipes'
 };
 /**
  * ==> Component

@@ -10,18 +10,10 @@ const Hero = ({}) => {
   const t = useTranslations();
   const locale = useLocale();
 
-  console.log(locale);
-  // const dir = locale === 'ar' ? 'rtl' : 'ltr';
   const [dir, setDir] = useState('ltr');
-
-  // useEffect(() => {
-  //   // Update direction when the locale changes
-  //   setDir(locale === 'ar' ? 'rtl' : 'ltr');
-  // }, [locale]);
 
   const dire = ['ar'].includes(locale) ? 'rtl' : 'ltr';
   useEffect(() => {
-    console.log(dir);
     setDir(dire);
   }, [dire, dir]);
   return (
@@ -34,8 +26,6 @@ const Hero = ({}) => {
         slidesPerView={1}
         loop={true}
         autoplay={{ delay: 5000, disableOnInteraction: false }}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
         className="hero"
         dir="ltr"
       >

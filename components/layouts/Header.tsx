@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import { CiSearch } from 'react-icons/ci';
+import { CiSearch, CiUser } from 'react-icons/ci';
 import { FaBars } from 'react-icons/fa';
 import {
   SlSocialFacebook,
@@ -12,19 +12,35 @@ import {
 import { usePathname } from 'next/navigation';
 import LangChange from '../ui/LangChange';
 import { useTranslations } from 'next-intl';
-
+import Cookies from 'js-cookie';
+import { useEffect, useState } from 'react';
+interface IProps {
+  name?: string;
+  email?: string;
+}
 /**
  * ==> Component
  */
 const Header = ({}) => {
   const path = usePathname();
   const t = useTranslations('nav');
+  const [userData, setUserData] = useState<IProps>({});
+  console.log(userData);
+
+  const user = Cookies.get('userData');
+  useEffect(() => {
+    if (user) {
+      setUserData(JSON.parse(user));
+    } else {
+      setUserData({});
+    }
+  }, [user]);
 
   return (
     <>
-      <div className="bg-primary-200 hidden md:flex items-center justify-center py-3">
+      <div className="bg-primary-200 hidden md:flex items-center justify-center h-[64px]">
         <div className="container flex items-center justify-between">
-          <div className="icons flex items-center gap-6">
+          <div className="icons flex items-center gap-4">
             <Link
               href={'/'}
               target="_blank"
@@ -57,13 +73,20 @@ const Header = ({}) => {
           <div className="actions flex items-center gap-6">
             <LangChange />
             <button>
-              <i className="text-3xl font-bold">
+              <i className="text-2xl font-bold">
                 <CiSearch />
               </i>
             </button>
-            <Link href="/login" className="btn main-btn">
-              <span className="content">login</span>
-            </Link>
+            {!user && (
+              <Link href="/login" className="btn main-btn">
+                <span className="content">login</span>
+              </Link>
+            )}
+            {user && (
+              <Link href={'/profile'}>
+                <CiUser className="text-2xl font-bold" />
+              </Link>
+            )}
           </div>
         </div>
       </div>
@@ -91,17 +114,18 @@ const Header = ({}) => {
               <li>
                 <Link
                   href={'/'}
-                  className={`text-base md:text-lg font-medium duration-300
+                  className={`text-base md:text-lg font-normal duration-300
                 hover:text-primary 
                 ${path == '/' ? 'text-primary' : 'text-secondary-100'} `}
                 >
                   {t('home')}
                 </Link>
               </li>
+
               <li>
                 <Link
                   href={'/recipes'}
-                  className={`text-base md:text-lg font-medium duration-300
+                  className={`text-base md:text-lg font-normal duration-300
                 hover:text-primary 
                 ${path == '/recipes' ? 'text-primary' : 'text-secondary-100'} `}
                 >
@@ -111,7 +135,7 @@ const Header = ({}) => {
               <li>
                 <Link
                   href={'/categories'}
-                  className={`text-base md:text-lg font-medium duration-300
+                  className={`text-base md:text-lg font-normal duration-300
                  hover:text-primary 
                  ${
                    path == '/categories' ? 'text-primary' : 'text-secondary-100'
@@ -123,7 +147,7 @@ const Header = ({}) => {
               <li>
                 <Link
                   href={'/about'}
-                  className={`text-base md:text-lg font-medium duration-300
+                  className={`text-base md:text-lg font-normal duration-300
                   hover:text-primary
                   ${path == '/about' ? 'text-primary' : 'text-secondary-100'} `}
                 >
@@ -133,7 +157,7 @@ const Header = ({}) => {
               <li>
                 <Link
                   href={'/blogs'}
-                  className={`text-base md:text-lg font-medium duration-300 
+                  className={`text-base md:text-lg font-normal duration-300 
                 hover:text-primary
                   ${path == '/blogs' ? 'text-primary' : 'text-secondary-100'} `}
                 >

@@ -1,12 +1,22 @@
 'use client';
 
+import Lottie from 'lottie-react';
+import loaderAnimation from '../public/loader.json';
+
 /**
  * ==> Component
  */
-const loading = ({}) => {
+const loading = () => {
   return (
     <>
-      <h1>loading</h1>
+      <section className="h-dvh">
+        <Lottie
+          className="h-1/2"
+          animationData={loaderAnimation}
+          loop={true}
+          autoplay={true}
+        />
+      </section>
     </>
   );
 };

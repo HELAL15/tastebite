@@ -18,19 +18,19 @@ const LangChange = () => {
     <>
       {locale === 'ar' ? (
         <button
-          className="flex items-center gap-1"
+          className="text-base flex items-center gap-1"
           onClick={() => setLocale('en')}
         >
-          en
-          <AiOutlineGlobal className="text-xl" />
+          english
+          <AiOutlineGlobal className="text-2xl" />
         </button>
       ) : (
         <button
-          className="flex items-center gap-1"
+          className="text-base flex items-center gap-1"
           onClick={() => setLocale('ar')}
         >
           العربية
-          <AiOutlineGlobal className="text-xl" />
+          <AiOutlineGlobal className="text-2xl" />
         </button>
       )}
     </>

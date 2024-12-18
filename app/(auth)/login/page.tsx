@@ -4,13 +4,25 @@ import FormControl from '@/components/ui/FormControl';
 import { Form, Formik } from 'formik';
 import { object, string } from 'yup';
 import { useMutation } from '@tanstack/react-query';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
+import Cookies from 'js-cookie';
 
 interface IProps {
   account_type: string | undefined;
   email: string | undefined;
   password: string | undefined;
   message?: string | undefined;
+  data?:
+    | {
+        token: string | undefined;
+        name?: string | string;
+        account_type?: string;
+        email?: string;
+        id?: string;
+        status?: string;
+        photo_profile?: string;
+      }
+    | undefined;
 }
 /**
  * ==> Component
@@ -45,8 +57,20 @@ const Page = () => {
       return response.json();
     },
     onSuccess: (responseData) => {
-      console.log('Login Successful:', responseData);
-      // alert(responseData.message || 'Login successful!');
+      const { token, account_type, email, id, name, photo_profile, status } =
+        responseData?.data || {};
+      const userData = {
+        type: account_type,
+        email: email,
+        id: id,
+        name: name,
+        avatar: photo_profile,
+        status: status
+      };
+      if (token) {
+        Cookies.set('tastebitetoken', token, { path: '/' });
+        Cookies.set('userData', JSON.stringify(userData), { path: '/' });
+      }
     },
     onError: (err) => {
       console.error('Error:', err.message);
@@ -55,6 +79,9 @@ const Page = () => {
   });
 
   const router = useRouter();
+
+  const searchParams = useSearchParams();
+  const redirectTo = searchParams.get('redirect') || '/';
 
   return (
     <section>
@@ -69,8 +96,7 @@ const Page = () => {
                 onSettled: () => {
                   setSubmitting(false);
                   resetForm();
-                  console.log(values);
-                  router.push('/');
+                  router.push(redirectTo);
                 }
               });
             }}
