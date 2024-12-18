@@ -1,10 +1,14 @@
 import Cookies from 'js-cookie';
 import { useLocale } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
-import React from 'react';
+import React, { FC, useEffect } from 'react';
 import { AiOutlineGlobal } from 'react-icons/ai';
 
-const LangChange = () => {
+interface IProps {
+  setIsMenuOpen?: (value: boolean) => void;
+}
+
+const LangChange: FC<IProps> = ({ setIsMenuOpen }) => {
   const router = useRouter();
   const path = usePathname();
   const setLocale = (locale: string) => {
@@ -14,6 +18,13 @@ const LangChange = () => {
   };
 
   const locale = useLocale();
+
+  useEffect(() => {
+    if (setIsMenuOpen) {
+      setIsMenuOpen(false);
+    }
+  }, [locale, router, setIsMenuOpen]);
+
   return (
     <>
       {locale === 'ar' ? (

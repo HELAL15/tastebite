@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { FC } from 'react';
 import { IoMdClose } from 'react-icons/io';
+import LangChange from './LangChange';
 
 interface IProps {
   setIsMenuOpen: (value: boolean) => void;
@@ -119,6 +120,9 @@ const MobileNav: FC<IProps> = ({ setIsMenuOpen, isMenuOpen, can }) => {
                   </Link>
                 </li>
               )}
+              <li>
+                <LangChange setIsMenuOpen={setIsMenuOpen} />
+              </li>
             </ul>
           </nav>
         </div>
