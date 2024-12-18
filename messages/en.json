@@ -1,12 +1,13 @@
 {
-  "title" : "hello world",
+  "title" : "cinnamon apple loaded tart",
   "nav":{
     "home":"home",
     "about":"about",
     "recipes":"recipes",
     "categories":"categories",
     "blog":"blog",
-    "profile" : "profile"
+    "profile" : "profile",
+    "login":"login"
   },
   "email":"email",
   "password":"password"

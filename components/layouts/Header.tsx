@@ -14,6 +14,7 @@ import LangChange from '../ui/LangChange';
 import { useTranslations } from 'next-intl';
 import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
+import MobileNav from '../ui/MobileNav';
 interface IProps {
   name?: string;
   email?: string;
@@ -35,6 +36,14 @@ const Header = ({}) => {
       setUserData({});
     }
   }, [user]);
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [path]);
+
+  const can = Object.keys(userData).length !== 0;
 
   return (
     <>
@@ -77,12 +86,12 @@ const Header = ({}) => {
                 <CiSearch />
               </i>
             </button>
-            {!user && (
+            {!can && (
               <Link href="/login" className="btn main-btn">
                 <span className="content">login</span>
               </Link>
             )}
-            {user && (
+            {can && (
               <Link href={'/profile'}>
                 <CiUser className="text-2xl font-bold" />
               </Link>
@@ -167,7 +176,7 @@ const Header = ({}) => {
             </ul>
           </nav>
           <div className="flex md:hidden">
-            <button>
+            <button onClick={() => setIsMenuOpen(true)}>
               <i className="text-2xl font-bold">
                 <FaBars />
               </i>
@@ -175,6 +184,11 @@ const Header = ({}) => {
           </div>
         </div>
       </header>
+      <MobileNav
+        can={true}
+        isMenuOpen={isMenuOpen}
+        setIsMenuOpen={setIsMenuOpen}
+      />
     </>
   );
 };
