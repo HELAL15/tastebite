@@ -26,7 +26,7 @@ const CategoryCard: FC<IProps> = ({ img, title }) => {
           sizes="100"
         />
         <h4
-          className="text-center text-xl lg:text-2xl 
+          className="text-center text-xl  
         font-bold mt-4 group-hover:text-primary 
         group-hover:-translate-y-1 duration-300"
         >

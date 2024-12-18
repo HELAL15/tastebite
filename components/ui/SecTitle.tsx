@@ -1,4 +1,6 @@
-import { FC } from "react";
+'use client';
+import { useTranslations } from 'next-intl';
+import { FC } from 'react';
 
 /**
  * ==> props interface
@@ -11,11 +13,12 @@ interface IProps {
  * ==> Component
  */
 const SecTitle: FC<IProps> = ({ title }) => {
+  const t = useTranslations('secTitle');
   return (
     <>
-      <h3 className="text-3xl font-bold mb-12">{title}</h3>
+      <h3 className="text-2xl font-bold mb-6 md:mb-10">{t(title)}</h3>
     </>
   );
-}
+};
 
 export default SecTitle;

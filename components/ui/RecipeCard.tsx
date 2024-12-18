@@ -18,7 +18,7 @@ const RecipeCard = ({}) => {
             className="object-cover w-full h-full group-hover:scale-110 duration-300 "
           />
         </div>
-        <h4 className="text-lg md:text-2xl font-bold px-3">
+        <h4 className="text-base md:text-xl font-bold md:px-3">
           caramel strawbery milkshake
         </h4>
       </Link>

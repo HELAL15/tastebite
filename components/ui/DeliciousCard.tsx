@@ -29,7 +29,7 @@ const DeliciousCard = ({}) => {
             <FaStar />
             <FaStar />
           </div>
-          <h4 className="text-3xl font-bold">
+          <h4 className="text-xl font-bold">
             delicious fancy glazed bluebery donuts
           </h4>
           <div className="author flex items-center gap-3">

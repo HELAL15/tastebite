@@ -10,5 +10,10 @@
     "login":"login"
   },
   "email":"email",
-  "password":"password"
+  "password":"password",
+  "secTitle": {
+    "categories" :"popular categories",
+    "delecious":"super delicious",
+    "recipes":"latest recipes"
+  }
 }

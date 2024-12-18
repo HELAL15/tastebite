@@ -44,12 +44,12 @@ const Hero = ({}) => {
               className="w-full h-full object-cover"
             />
             <div
-              className={`text container flex flex-col gap-2 justify-end pb-16 md:pb-28 absolute bottom-0  inset-x-0  z-10  w-full h-full`}
+              className={`text container flex flex-col gap-2 justify-end pb-14 md:pb-24 absolute bottom-0  inset-x-0  z-10  w-full h-full`}
             >
               <span className="text-base font-semibold text-white">
                 85% would make this again
               </span>
-              <h2 className=" max-w-[80%] md:max-w-[70%] text-3xl md:text-[3rem] md:leading-[3rem] lg:text-[6rem] lg:leading-[6rem] text-white">
+              <h2 className=" max-w-[75%] md:max-w-[50%] text-3xl md:text-[2rem] md:leading-[2rem] lg:text-[4rem] lg:leading-[4rem] text-white">
                 {t('title')}
               </h2>
             </div>
@@ -70,12 +70,12 @@ const Hero = ({}) => {
               className="w-full h-full object-cover"
             />
             <div
-              className={`text container flex flex-col gap-2 justify-end pb-16 md:pb-28 absolute bottom-0  inset-x-0  z-10  w-full h-full`}
+              className={`text container flex flex-col gap-2 justify-end pb-14 md:pb-24 absolute bottom-0  inset-x-0  z-10  w-full h-full`}
             >
               <span className="text-base font-semibold text-white">
                 85% would make this again
               </span>
-              <h2 className="max-w-[80%] md:max-w-[70%] text-3xl md:text-[3rem] md:leading-[3rem] lg:text-[6rem] lg:leading-[6rem] text-white">
+              <h2 className=" max-w-[75%] md:max-w-[50%]  text-3xl md:text-[2rem] md:leading-[2rem] lg:text-[4rem] lg:leading-[4rem] text-white">
                 {t('title')}
               </h2>
             </div>
