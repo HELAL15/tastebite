@@ -185,7 +185,7 @@ const Header = ({}) => {
         </div>
       </header>
       <MobileNav
-        can={true}
+        can={can}
         isMenuOpen={isMenuOpen}
         setIsMenuOpen={setIsMenuOpen}
       />
