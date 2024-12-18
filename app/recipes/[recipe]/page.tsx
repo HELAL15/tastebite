@@ -77,8 +77,8 @@ const page = () => {
       </section>
 
       <section className="recipe_details pt-0">
-        <div className="container grid grid-cols-12 max-md:gap-y-8 rtl:divide-x-reverse divide max-md:divide-y-2 lg:divide-x-2 divide-slate-300">
-          <div className="col-span-12 lg:col-span-8 space-y-10 pr-8">
+        <div className="container grid grid-cols-12 max-lg:gap-y-8 rtl:divide-x-reverse divide max-md:divide-y-2 lg:divide-x-2 divide-slate-300">
+          <div className="col-span-12 lg:col-span-8 space-y-10 rtl:pl-8 ltr:pr-8">
             <div className="space-y-6">
               <h3 className="text-3xl font-bold mb-6">ingredients</h3>
               <div className="cat">
@@ -167,7 +167,7 @@ const page = () => {
               </ul>
             </div>
           </div>
-          <div className="col-span-12 lg:col-span-4 max-md:pt-8 lg:px-8">
+          <div className="col-span-12 lg:col-span-4 max-md:pt-8 lg:rtl:pr-8 lg:ltr:pl-8">
             <div className="bg-gray-200 px-6 py-8 rounded space-y-4">
               <h4 className="title text-3xl font-semibold">nutrition facts</h4>
               <ul className="items divide divide-y-2 divide-slate-300">
