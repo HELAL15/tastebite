@@ -10,6 +10,7 @@ import ToastProvider from '@/providers/ToastProvider';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 import QueryProvider from '@/providers/QueryProvider';
+import { ToastContainer } from 'react-toastify';
 
 export const metadata: Metadata = {
   title: 'Tastebite - Food Recipe',
@@ -38,6 +39,7 @@ export default async function RootLayout({
               <ToastProvider>{children}</ToastProvider>
             </main>
             <Footer />
+            <ToastContainer />
           </QueryProvider>
         </NextIntlClientProvider>
       </body>

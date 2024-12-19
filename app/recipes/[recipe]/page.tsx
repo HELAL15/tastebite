@@ -14,7 +14,33 @@ export const metadata: Metadata = {
 /**
  * ==> Component
  */
-const page = () => {
+
+const fetchData = async (id: string) => {
+  const response = await fetch(`https://dummyjson.com/recipes/${id}`);
+  const data = await response.json();
+  return data;
+};
+const fetchRelated = async () => {
+  const response = await fetch(`https://dummyjson.com/recipes`);
+  const data = await response.json();
+  return data;
+};
+const page = async ({ params }: { params: { recipe: string } }) => {
+  const { recipe } = await params;
+  const data = await fetchData(recipe);
+  const related = await fetchRelated();
+  const {
+    image,
+    name,
+    ingredients,
+    instructions,
+    servings,
+    prepTimeMinutes,
+    cookTimeMinutes,
+    caloriesPerServing
+  } = data;
+  console.log(image.substring(25));
+
   return (
     <>
       <section>
@@ -34,9 +60,7 @@ const page = () => {
                 </button>
               </div>
             </div>
-            <h3 className="title text-4xl md:text-6xl font-bold">
-              strawberry cream cheesecake
-            </h3>
+            <h3 className="title text-4xl md:text-6xl font-bold">{name}</h3>
             <div className="publisher_details flex items-center flex-wrap gap-4 pb-4 border-b border-slate-300">
               <div className="flex items-center gap-2">
                 <Image
@@ -64,10 +88,10 @@ const page = () => {
               incidunt eligendi corporis reiciendis architecto nemo commodi
               voluptatum consequatur? Labore, aperiam placeat!
             </p>
-            <Image
-              className="rounded object-cover w-full h-[300px] lg:h-[600px]"
-              src="/header.png"
-              sizes="50"
+            <img
+              className="rounded object-cover w-full aspect-video"
+              src={`https://cdn.dummyjson.com/recipe-images/2.webp`}
+              sizes="100"
               width={0}
               height={0}
               alt="recipe"
@@ -82,88 +106,19 @@ const page = () => {
             <div className="space-y-6">
               <h3 className="text-3xl font-bold mb-6">ingredients</h3>
               <div className="cat">
-                <h4 className="head text-xl font-bold">for the crust</h4>
-                <ul className="space-y-2 mt-2">
-                  <li className="px-8 text-base font-semibold flex items-center relative before:absolute before:inset-x-0 before:w-5 before:h-5 before:rounded-full before:border before:border-black">
-                    Lorem, ipsum dolor.
-                  </li>
-                  <li className="px-8 text-base font-semibold flex items-center relative before:absolute before:inset-x-0 before:w-5 before:h-5 before:rounded-full before:border before:border-black">
-                    Lorem, ipsum dolor.
-                  </li>
-
-                  <li className="px-8 text-base font-semibold flex items-center relative before:absolute before:inset-x-0 before:w-5 before:h-5 before:rounded-full before:border before:border-black">
-                    Lorem, ipsum dolor.
-                  </li>
-
-                  <li className="px-8 text-base font-semibold flex items-center relative before:absolute before:inset-x-0 before:w-5 before:h-5 before:rounded-full before:border before:border-black">
-                    Lorem, ipsum dolor.
-                  </li>
-                </ul>
-              </div>
-              <div className="cat">
-                <h4 className="head text-xl font-bold">for the cheesecake</h4>
-                <ul className="space-y-2 mt-2">
-                  <li
-                    className="px-8 text-base font-semibold flex items-center 
-                relative before:absolute before:inset-x-0 
-                before:w-5 before:h-5 before:rounded-full 
-                before:border before:border-black"
-                  >
-                    Lorem, ipsum dolor. Lorem, ipsum dolor.
-                  </li>
-                  <li
-                    className="px-8 text-base font-semibold flex items-center 
-                relative before:absolute before:inset-x-0 
-                before:w-5 before:h-5 before:rounded-full 
-                before:border before:border-black"
-                  >
-                    Lorem, ipsum dolor. Lorem, ipsum dolor.
-                  </li>
-                  <li
-                    className="px-8 text-base font-semibold flex items-center 
-                relative before:absolute before:inset-x-0 
-                before:w-5 before:h-5 before:rounded-full 
-                before:border before:border-black"
-                  >
-                    Lorem, ipsum dolor. Lorem, ipsum dolor.
-                  </li>
-                  <li
-                    className="px-8 text-base font-semibold flex items-center 
-                relative before:absolute before:inset-x-0 
-                before:w-5 before:h-5 before:rounded-full 
-                before:border before:border-black"
-                  >
-                    Lorem, ipsum dolor. Lorem, ipsum dolor.
-                  </li>
-                  <li
-                    className="px-8 text-base font-semibold flex items-center 
-                relative before:absolute before:inset-x-0 
-                before:w-5 before:h-5 before:rounded-full 
-                before:border before:border-black"
-                  >
-                    Lorem, ipsum dolor. Lorem, ipsum dolor.
-                  </li>
+                <ul className="space-y-2 mt-2 instructions">
+                  {ingredients.map((ingredient: string, index: string) => (
+                    <li key={index}>{ingredient}</li>
+                  ))}
                 </ul>
               </div>
             </div>
             <div className="space-y-6">
               <h3 className="text-3xl font-bold mb-6">instructions</h3>
               <ul className="space-y-4 instructions">
-                <li>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Similique assumenda excepturi illo cum, voluptate distinctio
-                  accusantium sunt minima aut quia amet labore! Tempora repellat
-                </li>
-                <li>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Similique assumenda excepturi illo cum, voluptate distinctio
-                  accusantium sunt minima aut quia amet labore! Tempora repellat
-                </li>
-                <li>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Similique assumenda excepturi illo cum, voluptate distinctio
-                  accusantium sunt minima aut quia amet labore! Tempora repellat
-                </li>
+                {instructions.map((instruction: string, index: string) => (
+                  <li key={index}>{instruction}</li>
+                ))}
               </ul>
             </div>
           </div>
@@ -172,28 +127,20 @@ const page = () => {
               <h4 className="title text-3xl font-semibold">nutrition facts</h4>
               <ul className="items divide divide-y-2 divide-slate-300">
                 <li className="item py-1 text-lg  flex items-center justify-between">
-                  <span>ddd</span>
-                  <span>20</span>
+                  <span>caloriesPerServing</span>
+                  <span>{caloriesPerServing}</span>
                 </li>
                 <li className="item py-1 text-lg  flex items-center justify-between">
-                  <span>ddd</span>
-                  <span>20</span>
+                  <span>servings</span>
+                  <span>{servings}</span>
                 </li>
                 <li className="item py-1 text-lg  flex items-center justify-between">
-                  <span>ddd</span>
-                  <span>20</span>
+                  <span>prepTimeMinutes</span>
+                  <span>{prepTimeMinutes}</span>
                 </li>
                 <li className="item py-1 text-lg  flex items-center justify-between">
-                  <span>ddd</span>
-                  <span>20</span>
-                </li>
-                <li className="item py-1 text-lg  flex items-center justify-between">
-                  <span>ddd</span>
-                  <span>20</span>
-                </li>
-                <li className="item py-1 text-lg  flex items-center justify-between">
-                  <span>ddd</span>
-                  <span>20</span>
+                  <span>cookTimeMinutes</span>
+                  <span>{cookTimeMinutes}</span>
                 </li>
               </ul>
             </div>
@@ -202,12 +149,19 @@ const page = () => {
       </section>
 
       <section>
-        <div className="container ">
+        <div className="container">
           <PageHeading title="you might also like" />
           <div className=" grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-6">
-            {Array.from({ length: 8 }, (_, index) => (
-              <RecipeCard key={index} />
-            ))}
+            {related.recipes
+              .slice(0, 4)
+              .map((recipe: { id: string; name: string; image: string }) => (
+                <RecipeCard
+                  key={recipe.id}
+                  id={recipe.id}
+                  name={recipe.name}
+                  img={recipe.image}
+                />
+              ))}
           </div>
         </div>
       </section>

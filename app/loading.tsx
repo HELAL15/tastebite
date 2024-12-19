@@ -9,13 +9,15 @@ import loaderAnimation from '../public/loader.json';
 const loading = () => {
   return (
     <>
-      <section className="h-dvh">
-        <Lottie
-          className="h-1/2"
-          animationData={loaderAnimation}
-          loop={true}
-          autoplay={true}
-        />
+      <section className="p-0 fixed inset-y-0 inset-x-0 w-screen h-screen bg-white z-[99999999999999999999] ">
+        <div className="container h-full w-full grid place-items-center">
+          <Lottie
+            className="loader h-full w-full grid place-items-center"
+            animationData={loaderAnimation}
+            loop={true}
+            autoplay={true}
+          />
+        </div>
       </section>
     </>
   );

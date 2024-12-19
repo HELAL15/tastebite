@@ -133,7 +133,7 @@ section {
 
 .swiper-button-prev,
 .swiper-button-next {
-  @apply  bg-white !w-8 !h-8 md:!w-10 md:!h-10 rounded-full grid place-items-center duration-300  hover:bg-primary;
+  @apply bg-white !w-8 !h-8 md:!w-10 md:!h-10 rounded-full grid place-items-center duration-300  hover:bg-primary;
 }
 
 @media (max-width: 992px) {
@@ -180,4 +180,8 @@ section {
   width: 25px;
   height: 25px;
   border-radius: 50%;
+}
+
+.loader svg {
+  width: 20% !important;
 }

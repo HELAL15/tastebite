@@ -6,6 +6,7 @@ import { object, string } from 'yup';
 import { useMutation } from '@tanstack/react-query';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Cookies from 'js-cookie';
+import { toast } from 'react-toastify';
 
 interface IProps {
   account_type: string | undefined;
@@ -42,6 +43,8 @@ const Page = () => {
     account_type: string().required('Account type is required')
   });
 
+  const lang = Cookies.get('locale') || 'en';
+
   const { mutate } = useMutation<IProps, Error, IProps>({
     mutationFn: async (newSetting) => {
       const response = await fetch(
@@ -50,7 +53,8 @@ const Page = () => {
           method: 'POST',
           body: JSON.stringify(newSetting),
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            lang: lang
           }
         }
       );
@@ -71,6 +75,7 @@ const Page = () => {
         Cookies.set('tastebitetoken', token, { path: '/' });
         Cookies.set('userData', JSON.stringify(userData), { path: '/' });
       }
+      toast.success(responseData?.message || 'Login successful');
     },
     onError: (err) => {
       console.error('Error:', err.message);
