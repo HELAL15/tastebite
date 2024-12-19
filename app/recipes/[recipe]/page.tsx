@@ -15,7 +15,7 @@ export const metadata: Metadata = {
  * ==> Component
  */
 
-const fetchData = async (id: number) => {
+const fetchData = async (id: string) => {
   const response = await fetch(`https://dummyjson.com/recipes/${id}`);
   const data = await response.json();
   return data;
@@ -25,7 +25,7 @@ const fetchRelated = async () => {
   const data = await response.json();
   return data;
 };
-const page = async ({ params }: { params: { recipe: number } }) => {
+const page = async ({ params }: { params: Promise<{ recipe: string }> }) => {
   const { recipe } = await params;
   const data = await fetchData(recipe);
   const related = await fetchRelated();
