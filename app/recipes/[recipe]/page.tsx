@@ -39,7 +39,6 @@ const page = async ({ params }: { params: { recipe: string } }) => {
     cookTimeMinutes,
     caloriesPerServing
   } = data;
-  console.log(image.substring(25));
 
   return (
     <>
@@ -90,7 +89,7 @@ const page = async ({ params }: { params: { recipe: string } }) => {
             </p>
             <img
               className="rounded object-cover w-full aspect-video"
-              src={`https://cdn.dummyjson.com/recipe-images/2.webp`}
+              src={image}
               sizes="100"
               width={0}
               height={0}
