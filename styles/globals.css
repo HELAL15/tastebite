@@ -185,5 +185,5 @@ section {
 }
 
 .loader svg {
-  width: 20% !important;
+  @apply !w-[50%] md:!w-[35%] lg:!w-[20%];
 }
