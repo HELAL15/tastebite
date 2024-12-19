@@ -5,15 +5,20 @@ import { FC } from 'react';
  */
 interface IProps {
   title?: string;
+  border?: boolean;
 }
 
 /**
  * ==> Component
  */
-const PageHeading: FC<IProps> = ({ title }) => {
+const PageHeading: FC<IProps> = ({ title, border = true }) => {
   return (
     <>
-      <h2 className=" text-2xl xl:text-3xl font-bold pb-3 mb-6 md:mb-10 border-b border-b-secondary-200">
+      <h2
+        className={`text-2xl xl:text-3xl font-bold   ${
+          border && 'pb-3 border-b border-b-secondary-200 mb-6 md:mb-10'
+        }`}
+      >
         {title}
       </h2>
     </>

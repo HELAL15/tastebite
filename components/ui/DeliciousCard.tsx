@@ -3,17 +3,23 @@ import { FaStar } from 'react-icons/fa';
 import { CiCalendar } from 'react-icons/ci';
 import { GoComment } from 'react-icons/go';
 import Link from 'next/link';
+import { FC } from 'react';
 
+interface IProps {
+  name?: string | undefined;
+  img?: string | undefined;
+  id?: string | undefined;
+}
 /**
  * ==> Component
  */
-const DeliciousCard = ({}) => {
+const DeliciousCard: FC<IProps> = ({ name, img, id }) => {
   return (
     <>
-      <Link href={'/recipes/1'} className="card border rounded-lg">
+      <Link href={`/recipes/${id}`} className="card border rounded-lg">
         <div className="img max-h-[300px] rounded-t-lg overflow-hidden group">
-          <Image
-            src="/header1.jpg"
+          <img
+            src={img}
             alt="food"
             width={0}
             height={0}
@@ -29,15 +35,14 @@ const DeliciousCard = ({}) => {
             <FaStar />
             <FaStar />
           </div>
-          <h4 className="text-xl font-bold">
-            delicious fancy glazed bluebery donuts
-          </h4>
+          <h4 className="text-xl font-bold">{name}</h4>
           <div className="author flex items-center gap-3">
             <Image
               src="/header1.jpg"
               alt="author"
               width={0}
               height={0}
+              sizes="100"
               className="rounded-full w-10 h-10 object-cover"
             />
             <h5 className="text-lg font-semibold">jane doe</h5>

@@ -4,11 +4,16 @@ import { useTranslations } from 'next-intl';
 import React, { FC } from 'react';
 
 interface IProps {
-  name?: 'string' | 'email' | 'password';
+  name?: string;
   type?: 'email' | 'password' | 'text' | 'file';
+  placeholder?: string;
 }
 
-const FormControl: FC<IProps> = ({ name = '', type }) => {
+const FormControl: FC<IProps> = ({
+  name = '',
+  type,
+  placeholder = 'this is placeholder'
+}) => {
   const t = useTranslations();
   return (
     <div className="form-control flex flex-col gap-1 ">
@@ -19,7 +24,7 @@ const FormControl: FC<IProps> = ({ name = '', type }) => {
         type={type}
         name={name}
         id={name}
-        placeholder="Enter your email"
+        placeholder={placeholder}
         className="p-2 border-gray-300 rounded 
         outline-none border border-transparent
         focus:border-primary duration-300"

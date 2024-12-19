@@ -91,7 +91,7 @@ const Page = () => {
   return (
     <section>
       <div className="container grid place-items-center">
-        <div className="w-full max-w-xl bg-primary-200 rounded p-8">
+        <div className="w-full max-w-xl bg-primary-200 rounded p-3 md:p-8">
           <h1 className="text-3xl font-bold text-center mb-6">Login</h1>
           <Formik
             initialValues={initialValues}

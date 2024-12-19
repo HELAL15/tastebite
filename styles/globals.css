@@ -4,13 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --hue: 223;
-  --bg: hsl(var(--hue), 10%, 90%);
-  --fg: hsl(var(--hue), 10%, 10%);
-  --trans-dur: 0.3s;
-}
-
 * {
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -30,13 +23,17 @@ section {
 
 .btn {
   position: relative;
-  padding: 0.25rem 3rem;
+  padding: 0.5rem 3rem;
   font-size: 1.25rem;
   font-weight: 600;
-  border: 1px solid black;
+
   border-radius: 0.25rem;
   overflow: hidden;
   transition: background-color 0.3s;
+}
+
+.main-btn {
+  border: 1px solid black;
 }
 
 .main-btn::after {
@@ -46,6 +43,7 @@ section {
   left: -100%;
   width: 100%;
   height: 100%;
+
   background-color: black;
   transition: left 0.3s;
 }
@@ -73,6 +71,10 @@ section {
 
 .btn:disabled::after {
   display: none;
+}
+
+.primary-btn {
+  @apply bg-primary hover:bg-primary/80 text-white;
 }
 
 .input {

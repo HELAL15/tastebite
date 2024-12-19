@@ -17,7 +17,6 @@ const fetchData = async () => {
 
 const page = async ({}) => {
   const { recipes } = await fetchData();
-  console.log(recipes);
 
   return (
     <>

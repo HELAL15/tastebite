@@ -39,7 +39,7 @@ const page = async ({ params }: { params: Promise<{ recipe: string }> }) => {
     cookTimeMinutes,
     caloriesPerServing
   } = data;
-
+  // wildoasis2312
   return (
     <>
       <section>
