@@ -18,6 +18,7 @@ import MobileNav from '../ui/MobileNav';
 import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
 import FormControl from '../ui/FormControl';
 import { Form, Formik } from 'formik';
+import { MdClose } from 'react-icons/md';
 
 interface IProps {
   name?: string;
@@ -117,7 +118,12 @@ const Header = ({}) => {
                       as="h2"
                       className="text-lg font-bold flex items-center justify-between gap-1  "
                     >
-                      search in meals
+                      <span>search in meals</span>
+                      <button onClick={closeModal}>
+                        <i className="text-2xl font-bold">
+                          <MdClose />
+                        </i>
+                      </button>
                     </DialogTitle>
 
                     <Formik
