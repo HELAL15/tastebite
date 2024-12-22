@@ -15,6 +15,10 @@ import { useTranslations } from 'next-intl';
 import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
 import MobileNav from '../ui/MobileNav';
+import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
+import FormControl from '../ui/FormControl';
+import { Form, Formik } from 'formik';
+
 interface IProps {
   name?: string;
   email?: string;
@@ -44,6 +48,14 @@ const Header = ({}) => {
   }, [path]);
 
   const can = Object.keys(userData).length !== 0;
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
 
   return (
     <>
@@ -81,11 +93,107 @@ const Header = ({}) => {
           </div>
           <div className="actions flex items-center gap-6">
             <LangChange />
-            <button>
+            <button onClick={openModal}>
               <i className="text-2xl font-bold">
                 <CiSearch />
               </i>
             </button>
+            <Dialog
+              open={isModalOpen}
+              as="div"
+              className="relative duration-300 z-50 focus:outline-none"
+              onClose={close}
+            >
+              <div
+                onClick={closeModal}
+                className="fixed duration-300 bg-primary-200/40 backdrop-blur-md inset-0 w-screen overflow-y-auto"
+              >
+                <div className="flex pt-20 justify-center p-4">
+                  <DialogPanel
+                    transition
+                    className="w-full max-w-xl rounded shadow-lg p-6 bg-white duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0"
+                  >
+                    <DialogTitle
+                      as="h2"
+                      className="text-lg font-bold flex items-center justify-between gap-1  "
+                    >
+                      search in meals
+                    </DialogTitle>
+
+                    <Formik
+                      initialValues={{
+                        search: ''
+                      }}
+                      onSubmit={(values, { setSubmitting, resetForm }) => {
+                        console.log(values);
+                        setSubmitting(false);
+                        resetForm();
+                        closeModal();
+                      }}
+                    >
+                      {({ isValid, isSubmitting }) => (
+                        <Form className="flex items-stretch gap-1 w-full my-4">
+                          {/* Email Field */}
+                          <FormControl
+                            cx="!border-primary-200 !focus:border-primary-100"
+                            label=""
+                            name="search"
+                            type="text"
+                          />
+                          {/* Submit Button */}
+                          <button
+                            type="submit"
+                            disabled={!isValid || isSubmitting}
+                            className=" px-4 py-2 bg-primary/90 hover:bg-primary text-white rounded disabled:bg-slate-500 disabled:cursor-not-allowed "
+                          >
+                            {isSubmitting ? (
+                              'Submitting...'
+                            ) : (
+                              <i className="text-2xl font-bold">
+                                <CiSearch />
+                              </i>
+                            )}
+                          </button>
+                        </Form>
+                      )}
+                    </Formik>
+
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-2">
+                        <img
+                          className="aspect-square rounded max-w-16 object-cover"
+                          src="/breakfast.jpeg"
+                          alt=""
+                        />
+                        <h3 className="text-base font-semibold">
+                          title title title
+                        </h3>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <img
+                          className="aspect-square rounded max-w-16 object-cover"
+                          src="/breakfast.jpeg"
+                          alt=""
+                        />
+                        <h3 className="text-base font-semibold">
+                          title title title
+                        </h3>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <img
+                          className="aspect-square rounded max-w-16 object-cover"
+                          src="/breakfast.jpeg"
+                          alt=""
+                        />
+                        <h3 className="text-base font-semibold">
+                          title title title
+                        </h3>
+                      </div>
+                    </div>
+                  </DialogPanel>
+                </div>
+              </div>
+            </Dialog>
             {!can && (
               <Link href="/login" className="btn main-btn">
                 <span className="content">login</span>
@@ -99,10 +207,10 @@ const Header = ({}) => {
           </div>
         </div>
       </div>
-      <header className="bg-white/80 backdrop-blur-2xl backdrop-filter shadow-sm sticky top-0 z-50 border-b border-b-slate-100">
+      <header className="bg-white/80 backdrop-blur-2xl backdrop-filter shadow-sm sticky top-0 z-40 border-b border-b-slate-100">
         <div className="container flex md:flex-col gap-8 justify-between md:justify-center flex-wrap items-center py-6">
           <div className="flex md:hidden">
-            <button>
+            <button onClick={openModal}>
               <i className="text-3xl font-bold">
                 <CiSearch />
               </i>

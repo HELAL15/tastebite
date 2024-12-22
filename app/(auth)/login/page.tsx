@@ -44,7 +44,10 @@ const Page = () => {
   });
 
   const lang = Cookies.get('locale') || 'en';
+  const router = useRouter();
 
+  const searchParams = useSearchParams();
+  const redirectTo = searchParams.get('redirect') || '/';
   const { mutate } = useMutation<IProps, Error, IProps>({
     mutationFn: async (newSetting) => {
       const response = await fetch(
@@ -76,17 +79,13 @@ const Page = () => {
         Cookies.set('userData', JSON.stringify(userData), { path: '/' });
       }
       toast.success(responseData?.message || 'Login successful');
+      router.push(redirectTo);
     },
     onError: (err) => {
       console.error('Error:', err.message);
       alert('Login failed. Please try again.');
     }
   });
-
-  const router = useRouter();
-
-  const searchParams = useSearchParams();
-  const redirectTo = searchParams.get('redirect') || '/';
 
   return (
     <section>
@@ -101,7 +100,6 @@ const Page = () => {
                 onSettled: () => {
                   setSubmitting(false);
                   resetForm();
-                  router.push(redirectTo);
                 }
               });
             }}
