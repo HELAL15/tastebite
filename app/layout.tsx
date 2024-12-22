@@ -35,7 +35,7 @@ export default async function RootLayout({
           <QueryProvider>
             <NextTopLoader color="#ff642f" height={4} showSpinner={false} />
             <Header />
-            <main>
+            <main className="overflow-x-clip">
               <ToastProvider>{children}</ToastProvider>
             </main>
             <Footer />

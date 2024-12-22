@@ -187,3 +187,13 @@ section {
 .loader svg {
   @apply !w-[50%] md:!w-[35%] lg:!w-[20%];
 }
+
+.loader {
+  height: calc(100dvh - 225px);
+}
+
+@media (max-width: 756px) {
+  .loader {
+    height: calc(100dvh - 80px);
+  }
+}

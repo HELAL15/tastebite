@@ -19,12 +19,12 @@ const page = () => {
         <div className="container">
           <div className="flex items-center justify-between flex-wrap gap-4 pb-3 mb-6 md:mb-10 border-b border-b-secondary-200">
             <PageHeading border={false} title="profile" />
-            <div className="flex items-center flex-wrap gap-8">
-              <button className="text-lg flex items-center gap-1 font-semibold">
+            <div className="flex items-center flex-wrap gap-3 md:gap-8">
+              <button className="text-base md:text-lg flex items-center gap-1 font-semibold">
                 <MdOutlineLogout className="text-xl md:text-2xl" />
                 logout
               </button>
-              <button className="text-lg text-primary font-semibold">
+              <button className="text-base md:text-lg text-primary font-semibold">
                 delete account
               </button>
             </div>
@@ -43,7 +43,7 @@ const page = () => {
             </button>
           </div>
           <ProfileForm />
-          <div className="mt-8 flex items-center flex-wrap gap-20">
+          <div className="mt-8 flex items-center flex-wrap gap-4 md:gap-20">
             <p className="flex flex-col gap-2">
               <span className="text-xl font-bold">newsletter</span>
               <span>you are currently subscribed to our newsletter</span>
