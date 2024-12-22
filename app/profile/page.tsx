@@ -29,7 +29,7 @@ const page = () => {
               </button>
             </div>
           </div>
-          <div className="flex items-center flex-wrap gap-4">
+          <div className="flex items-center flex-wrap gap-2 md:gap-4">
             <Image
               sizes="100"
               width={0}
