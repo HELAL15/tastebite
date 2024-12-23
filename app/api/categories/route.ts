@@ -1,34 +1,31 @@
-// import { client } from '@/lib/mongodb';
+
+import connectDB from '@/config/database';
+import categoryModel from '@/models/categoryModel';
 import { NextResponse } from 'next/server';
 
 
 export async function GET() {
-  const data = { message: 'Hello from Categories API' };
-  return NextResponse.json(data);
+  try{
+    await connectDB()
+    const cats = await categoryModel.find()
+    return  NextResponse.json({data:cats , message:'all categories'}, {status: 200});
+  }catch(error){
+    return NextResponse.json({ message: 'error ecoured', data: error }, { status: 500 })
+  }
 }
-// export async function GET() {
-//   try {
-//     // Connect to the database
-//     await client.connect();
 
-    
-//     const db = client.db('tastebite'); 
-//     const categoriesCollection = db.collection('categories');
 
-    
-//     const categories = await categoriesCollection.find({}).toArray();
-
-  
-//     return NextResponse.json({ success: true, data: categories });
-//   } catch (error) {
-//     console.error('Error fetching categories:', error);
-//     return NextResponse.json({ success: false, message: 'Failed to fetch categories' }, { status: 500 });
-//   }
-// }
 
 export async function POST(req: Request) {
-  const body = await req.json();
-  return NextResponse.json({ message: 'Data received', data: body });
+  try{
+    await connectDB()
+    const {title, image} = await req.json()
+    const cat = await categoryModel.create({title,image})
+    return new Response( JSON.stringify(cat), {status: 201, headers: {'Content-Type': 'application/json'}})
+  }catch(error){
+    return NextResponse.json({ message: 'error ecoured', data: error })
+  }
+
 }
 // 1ahmedhelal1
 // 2qtBgaxXVnMPd505
