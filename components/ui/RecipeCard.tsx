@@ -34,12 +34,14 @@ const RecipeCard: FC<IProps> = ({ name, img, id }) => {
         >
           <div className="img max-h-[200px] lg:max-h-[250px] aspect-square relative duration-300 w-full overflow-hidden rounded-lg">
             <Image
-              src={`${img}`}
+              src={`${img ? img : '/logo.png'}`}
               alt="recipe"
               width={0}
               height={0}
               sizes="100"
-              className="object-cover  w-full h-full group-hover:scale-110 duration-300 "
+              className={`${
+                img ? 'object-cover' : 'object-contain bg-primary-200'
+              } w-full h-full group-hover:scale-110 duration-300 `}
             />
           </div>
           <h4 className="text-base md:text-xl font-bold md:px-3">{name}</h4>
