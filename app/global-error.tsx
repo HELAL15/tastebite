@@ -1,9 +1,6 @@
 'use client';
 
-/**
- * ==> Component
- */
-const globalError = ({}) => {
+const GlobalError = () => {
   return (
     <>
       <h1>error</h1>
@@ -11,4 +8,4 @@ const globalError = ({}) => {
   );
 };
 
-export default globalError;
+export default GlobalError;
