@@ -7,6 +7,7 @@ import { useMutation } from '@tanstack/react-query';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Cookies from 'js-cookie';
 import { toast } from 'react-toastify';
+import Link from 'next/link';
 
 interface IProps {
   account_type: string | undefined;
@@ -88,7 +89,7 @@ const Page = () => {
   });
 
   return (
-    <section>
+    <section className="">
       <div className="container grid place-items-center">
         <div className="w-full max-w-xl bg-primary-200 rounded p-3 md:p-8">
           <h1 className="text-3xl font-bold text-center mb-6">Login</h1>
@@ -111,15 +112,29 @@ const Page = () => {
 
                 {/* Password Field */}
                 <FormControl name="password" type="password" />
+                <div className="flex items-center gap-1">
+                  <p>already have an account?</p>
+                  <Link className="text-primary underline" href={'register'}>
+                    Register
+                  </Link>
+                </div>
 
                 {/* Submit Button */}
-                <button
-                  type="submit"
-                  disabled={!isValid || isSubmitting}
-                  className="mt-4 px-4 py-2 bg-primary/90 hover:bg-primary text-white rounded disabled:bg-slate-500 disabled:cursor-not-allowed "
-                >
-                  {isSubmitting ? 'Submitting...' : 'Submit'}
-                </button>
+                <div className="flex items-center justify-between">
+                  <button
+                    type="submit"
+                    disabled={!isValid || isSubmitting}
+                    className=" px-4 py-2 bg-primary/90 hover:bg-primary text-white rounded disabled:bg-slate-500 disabled:cursor-not-allowed "
+                  >
+                    {isSubmitting ? 'Submitting...' : 'Submit'}
+                  </button>
+                  <Link
+                    className="text-primary underline text-base"
+                    href={'forget-password'}
+                  >
+                    forget password ?
+                  </Link>
+                </div>
               </Form>
             )}
           </Formik>

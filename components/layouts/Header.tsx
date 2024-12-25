@@ -285,7 +285,7 @@ const Header = ({}) => {
                   {t('about')}
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   href={'/blogs'}
                   className={`text-base md:text-lg font-normal duration-300 
@@ -294,7 +294,7 @@ const Header = ({}) => {
                 >
                   {t('blog')}
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </nav>
           <div className="flex md:hidden">

@@ -14,9 +14,13 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL('/', request.url));
   }
 
+  if (token && request.nextUrl.pathname === '/register') {
+    return NextResponse.redirect(new URL('/', request.url));
+  }
+
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ['/profile', '/login']
+  matcher: ['/profile', '/login' , '/register']
 };

@@ -1,10 +1,10 @@
 import MainButton from '@/components/ui/Button';
 import PageHeading from '@/components/ui/PageHeading';
 import ProfileForm from '@/components/ui/ProfileForm';
-import { MdOutlineLogout } from 'react-icons/md';
 
 import { Metadata } from 'next';
 import Image from 'next/image';
+import LogoutHandler from '@/components/LogoutHandler';
 
 export const metadata: Metadata = {
   title: 'Tastebite - profile'
@@ -20,10 +20,7 @@ const page = () => {
           <div className="flex items-center justify-between flex-wrap gap-4 pb-3 mb-6 md:mb-10 border-b border-b-secondary-200">
             <PageHeading border={false} title="profile" />
             <div className="flex items-center flex-wrap gap-3 md:gap-8">
-              <button className="text-base md:text-lg flex items-center gap-1 font-semibold">
-                <MdOutlineLogout className="text-xl md:text-2xl" />
-                logout
-              </button>
+              <LogoutHandler />
               <button className="text-base md:text-lg text-primary font-semibold">
                 delete account
               </button>
