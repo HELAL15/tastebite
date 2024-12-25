@@ -18,8 +18,8 @@ const DeliciousCard: FC<IProps> = ({ name, img, id }) => {
     <>
       <Link href={`/recipes/${id}`} className="card border rounded-lg">
         <div className="img max-h-[300px] rounded-t-lg overflow-hidden group">
-          <img
-            src={img}
+          <Image
+            src={`${img}`}
             alt="food"
             width={0}
             height={0}

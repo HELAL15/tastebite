@@ -94,8 +94,8 @@ const page = async ({ params }: { params: Promise<{ recipe: string }> }) => {
               incidunt eligendi corporis reiciendis architecto nemo commodi
               voluptatum consequatur? Labore, aperiam placeat!
             </p>
-            <img
-              className="rounded object-cover w-full aspect-video"
+            <Image
+              className="rounded object-cover w-full max-h-[550px] aspect-square"
               src={image}
               sizes="100"
               width={0}

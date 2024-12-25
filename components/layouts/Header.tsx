@@ -165,8 +165,11 @@ const Header = ({}) => {
 
                     <div className="space-y-4">
                       <div className="flex items-center gap-2">
-                        <img
-                          className="aspect-square rounded max-w-16 object-cover"
+                        <Image
+                          sizes="100"
+                          width={0}
+                          height={0}
+                          className="aspect-square rounded max-w-16 w-16 h-16 object-cover"
                           src="/breakfast.jpeg"
                           alt=""
                         />
@@ -175,8 +178,11 @@ const Header = ({}) => {
                         </h3>
                       </div>
                       <div className="flex items-center gap-2">
-                        <img
-                          className="aspect-square rounded max-w-16 object-cover"
+                        <Image
+                          sizes="100"
+                          width={0}
+                          height={0}
+                          className="aspect-square rounded max-w-16 w-16 h-16 object-cover"
                           src="/breakfast.jpeg"
                           alt=""
                         />
@@ -185,8 +191,11 @@ const Header = ({}) => {
                         </h3>
                       </div>
                       <div className="flex items-center gap-2">
-                        <img
-                          className="aspect-square rounded max-w-16 object-cover"
+                        <Image
+                          sizes="100"
+                          width={0}
+                          height={0}
+                          className="aspect-square rounded max-w-16 w-16 h-16 object-cover"
                           src="/breakfast.jpeg"
                           alt=""
                         />
