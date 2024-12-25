@@ -1,3 +1,4 @@
+import notFound from '@/app/not-found';
 import PageHeading from '@/components/ui/PageHeading';
 import RecipeCard from '@/components/ui/RecipeCard';
 import { Metadata } from 'next';
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
 const fetchData = async (id: string) => {
   const response = await fetch(`https://dummyjson.com/recipes/${id}`);
   const data = await response.json();
-  return data;
+  return { response, data };
 };
 const fetchRelated = async () => {
   const response = await fetch(`https://dummyjson.com/recipes`);
@@ -27,8 +28,13 @@ const fetchRelated = async () => {
 };
 const page = async ({ params }: { params: Promise<{ recipe: string }> }) => {
   const { recipe } = await params;
-  const data = await fetchData(recipe);
+  const { response, data } = await fetchData(recipe);
   const related = await fetchRelated();
+
+  if (response.status === 404) {
+    return notFound();
+  }
+
   const {
     image,
     name,
@@ -40,6 +46,7 @@ const page = async ({ params }: { params: Promise<{ recipe: string }> }) => {
     caloriesPerServing
   } = data;
   // wildoasis2312
+
   return (
     <>
       <section>

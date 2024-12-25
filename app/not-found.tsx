@@ -1,7 +1,7 @@
 /**
  * ==> Component
  */
-const notFound = ({}) => {
+const notFound = () => {
   return (
     <>
       <div className="container flex items-center justify-center py-60">

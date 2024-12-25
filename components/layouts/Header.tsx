@@ -31,7 +31,6 @@ const Header = ({}) => {
   const path = usePathname();
   const t = useTranslations('nav');
   const [userData, setUserData] = useState<IProps>({});
-  console.log(userData);
 
   const user = Cookies.get('userData');
   useEffect(() => {
