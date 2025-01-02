@@ -10,19 +10,19 @@ import { toast } from 'react-toastify';
 import Link from 'next/link';
 
 interface IProps {
-  account_type: string | undefined;
+  role: string | undefined;
   email: string | undefined;
   password: string | undefined;
   message?: string | undefined;
-  data?:
+  userData?:
     | {
         token: string | undefined;
         name?: string | string;
-        account_type?: string;
+        role?: string;
         email?: string;
         id?: string;
         status?: string;
-        photo_profile?: string;
+        avatar?: string;
       }
     | undefined;
 }
@@ -33,7 +33,7 @@ const Page = () => {
   const initialValues = {
     email: '',
     password: '',
-    account_type: 'user'
+    role: 'user'
   };
 
   const validationSchema = object({
@@ -41,7 +41,7 @@ const Page = () => {
     password: string()
       .min(6, 'Password must be at least 6 characters')
       .required('Password is required'),
-    account_type: string().required('Account type is required')
+    role: string().required('Account type is required')
   });
 
   const lang = Cookies.get('locale') || 'en';
@@ -51,28 +51,27 @@ const Page = () => {
   const redirectTo = searchParams.get('redirect') || '/';
   const { mutate } = useMutation<IProps, Error, IProps>({
     mutationFn: async (newSetting) => {
-      const response = await fetch(
-        'https://backend.smartvision4p.com/ecommerce-multivendor/public/api/user/login',
-        {
-          method: 'POST',
-          body: JSON.stringify(newSetting),
-          headers: {
-            'Content-Type': 'application/json',
-            lang: lang
-          }
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        body: JSON.stringify(newSetting),
+        headers: {
+          'Content-Type': 'application/json',
+          lang: lang
         }
-      );
+      });
       return response.json();
     },
     onSuccess: (responseData) => {
-      const { token, account_type, email, id, name, photo_profile, status } =
-        responseData?.data || {};
+      console.log('responseData:', responseData);
+
+      const { token, role, email, id, name, avatar, status } =
+        responseData?.userData || {};
       const userData = {
-        type: account_type,
+        role: role,
         email: email,
         id: id,
         name: name,
-        avatar: photo_profile,
+        avatar: avatar,
         status: status
       };
       if (token) {
