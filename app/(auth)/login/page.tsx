@@ -8,9 +8,9 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import Cookies from 'js-cookie';
 import { toast } from 'react-toastify';
 import Link from 'next/link';
+import axios, { AxiosError } from 'axios';
 
 interface IProps {
-  role: string | undefined;
   email: string | undefined;
   password: string | undefined;
   message?: string | undefined;
@@ -26,44 +26,39 @@ interface IProps {
       }
     | undefined;
 }
+
+interface ErrorResponseData {
+  message: string;
+}
+
 /**
  * ==> Component
  */
 const Page = () => {
   const initialValues = {
     email: '',
-    password: '',
-    role: 'user'
+    password: ''
   };
 
   const validationSchema = object({
     email: string().email('Invalid email format').required('Email is required'),
     password: string()
       .min(6, 'Password must be at least 6 characters')
-      .required('Password is required'),
-    role: string().required('Account type is required')
+      .required('Password is required')
   });
 
-  const lang = Cookies.get('locale') || 'en';
+  // const lang = Cookies.get('locale') || 'en';
   const router = useRouter();
 
   const searchParams = useSearchParams();
   const redirectTo = searchParams.get('redirect') || '/';
   const { mutate } = useMutation<IProps, Error, IProps>({
     mutationFn: async (newSetting) => {
-      const response = await fetch('/api/auth/login', {
-        method: 'POST',
-        body: JSON.stringify(newSetting),
-        headers: {
-          'Content-Type': 'application/json',
-          lang: lang
-        }
-      });
-      return response.json();
+      const res = await axios.post('/api/auth/login', newSetting);
+
+      return res.data;
     },
     onSuccess: (responseData) => {
-      console.log('responseData:', responseData);
-
       const { token, role, email, id, name, avatar, status } =
         responseData?.userData || {};
       const userData = {
@@ -81,9 +76,16 @@ const Page = () => {
       toast.success(responseData?.message || 'Login successful');
       router.push(redirectTo);
     },
-    onError: (err) => {
-      console.error('Error:', err.message);
-      alert('Login failed. Please try again.');
+    onError: (err: Error) => {
+      if ((err as AxiosError<ErrorResponseData>).isAxiosError) {
+        const axiosError = err as AxiosError<ErrorResponseData>;
+        const message =
+          axiosError.response?.data?.message || 'An unexpected error occurred';
+        toast.error(message);
+      } else {
+        // Fallback for generic errors
+        toast.error(err.message || 'An unexpected error occurred');
+      }
     }
   });
 
@@ -112,7 +114,7 @@ const Page = () => {
                 {/* Password Field */}
                 <FormControl name="password" type="password" />
                 <div className="flex items-center gap-1">
-                  <p>already have an account?</p>
+                  <p>dont have an account?</p>
                   <Link className="text-primary underline" href={'register'}>
                     Register
                   </Link>
@@ -127,12 +129,12 @@ const Page = () => {
                   >
                     {isSubmitting ? 'Submitting...' : 'Submit'}
                   </button>
-                  <Link
+                  {/* <Link
                     className="text-primary underline text-base"
                     href={'forget-password'}
                   >
                     forget password ?
-                  </Link>
+                  </Link> */}
                 </div>
               </Form>
             )}
