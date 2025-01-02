@@ -33,6 +33,8 @@ export async function POST(req: Request) {
       { expiresIn: "7d" }
     );
 
+    
+
 
     const userData = {
       name:user.name,
