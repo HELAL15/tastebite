@@ -1,20 +1,21 @@
-import { FC } from "react";
+// import { FC } from "react";
 import SecTitle from "./ui/SecTitle";
-import Link from "next/link";
-import Image from "next/image";
+// import Link from "next/link";
+// import Image from "next/image";
 import CategoryCard from "./ui/CategoryCard";
 
 /**
  * ==> props interface
  */
-interface IProps {
+// interface IProps {
 
-}
+// }
 
 /**
  * ==> Component
  */
-const Categories: FC<IProps> = ({  }) => {
+// : FC<IProps>
+const Categories = ({  }) => {
   return (
     <>
     <section>

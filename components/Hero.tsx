@@ -1,13 +1,13 @@
 'use client';
 
-import { FC } from "react";
+//import { FC } from "react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 
-interface IProps {}
-
-const Hero: FC<IProps> = ({}) => {
+// interface IProps {}
+// : FC<IProps>
+const Hero = ({}) => {
   return (
     <Swiper
       modules={[Navigation, Pagination , Autoplay]}

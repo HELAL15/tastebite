@@ -1,4 +1,4 @@
-import { FC } from "react";
+// //import { FC } from "react";
 import SecTitle from "./ui/SecTitle";
 import DeliciousCard from "./ui/DeliciousCard";
 
@@ -6,14 +6,15 @@ import DeliciousCard from "./ui/DeliciousCard";
 /**
  * ==> props interface
  */
-interface IProps {
+// interface IProps {
 
-}
+// }
 
 /**
  * ==> Component
  */
-const SuperDeleciuos: FC<IProps> = ({  }) => {
+// : FC<IProps>
+const SuperDeleciuos = ({  }) => {
   return (
     <>
     <section className="">

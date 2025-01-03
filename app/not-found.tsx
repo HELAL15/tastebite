@@ -1,16 +1,17 @@
-import { FC,  } from "react";
+// import { FC,  } from "react";
 
 /**
  * ==> props interface
  */
-interface IProps {
+// interface IProps {
 
-}
+// }
 
 /**
  * ==> Component
  */
-const notFound: FC<IProps> = ({  }) => {
+// : FC<IProps>
+const notFound = ({  }) => {
   return (
     <>
       <div className="container flex items-center justify-center py-60">

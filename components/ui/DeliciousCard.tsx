@@ -1,4 +1,4 @@
-import { FC } from "react";
+// import { FC } from "react";
 import Image from "next/image";
 import { FaStar } from "react-icons/fa";
 import { CiCalendar } from "react-icons/ci";
@@ -7,14 +7,15 @@ import Link from "next/link";
 /**
  * ==> props interface
  */
-interface IProps {
+// interface IProps {
 
-}
+// }
 
 /**
  * ==> Component
  */
-const DeliciousCard: FC<IProps> = ({  }) => {
+// : FC<IProps>
+const DeliciousCard = ({  }) => {
   return (
     <>
     <Link href={'/recipes/1'} className="card border rounded-lg">

@@ -1,4 +1,4 @@
-import { FC } from "react";
+//import { FC } from "react";
 import SecTitle from "./ui/SecTitle";
 import RecipeCard from "./ui/RecipeCard";
 
@@ -6,14 +6,15 @@ import RecipeCard from "./ui/RecipeCard";
 /**
  * ==> props interface
  */
-interface IProps {
+// interface IProps {
 
-}
+// }
 
 /**
  * ==> Component
  */
-const LatestRecipes: FC<IProps> = ({  }) => {
+// : FC<IProps>
+const LatestRecipes = ({  }) => {
   return (
     <>
     <section>

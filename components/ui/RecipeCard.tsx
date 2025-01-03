@@ -1,18 +1,19 @@
-import { FC } from "react";
+// import { FC } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 /**
  * ==> props interface
  */
-interface IProps {
+// interface IProps {
 
-}
+// }
 
 /**
  * ==> Component
  */
-const RecipeCard: FC<IProps> = ({  }) => {
+// : FC<IProps>
+const RecipeCard = ({  }) => {
   return (
     <>
     <Link href={'/recipes/recipe-name'} className="card duration-300 group space-y-3">

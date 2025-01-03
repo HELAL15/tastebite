@@ -1,15 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FC, memo } from "react";
+// import FC from "react";
 import { SlSocialFacebook, SlSocialInstagram, SlSocialTwitter, SlSocialYoutube } from "react-icons/sl";
 import FooterLinks from "../ui/FooterLinks";
 
 /**
  * ==> props interface
  */
-interface IProps {
+// interface IProps {
 
-}
+// }
 
 const footerLinks = [
   {
@@ -48,7 +48,8 @@ const footerLinks = [
 /**
  * ==> Component
  */
-const Footer: FC<IProps> = ({  }) => {
+// : FC<IProps>
+const Footer = ({  }) => {
   return (
     <>
     <footer className=" bg-secondary-200/30 py-6 pt-10">
@@ -69,7 +70,7 @@ const Footer: FC<IProps> = ({  }) => {
             </p>
           </div>
           {
-            footerLinks.map((link:any) => (
+            footerLinks.map((link) => (
               <FooterLinks key={link.id} title={link.title} links={link.links} />
             ))
           }
@@ -97,4 +98,4 @@ const Footer: FC<IProps> = ({  }) => {
   );
 }
 
-export default memo(Footer);
+export default Footer;

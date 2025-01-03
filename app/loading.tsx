@@ -1,18 +1,18 @@
 'use client'
-import RouteLoader from "@/components/layouts/RouterLoader";
-import { FC } from "react";
+//import { FC } from "react";
 
 /**
  * ==> props interface
  */
-interface IProps {
+// interface IProps {
 
-}
+// }
 
 /**
  * ==> Component
  */
-const loading: FC<IProps> = ({  }) => {
+// : FC<IProps>
+const loading = ({  }) => {
   return (
     <>
       <h1>loading</h1>

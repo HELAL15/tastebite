@@ -1,21 +1,22 @@
 import PageHeading from "@/components/ui/PageHeading";
 import { Metadata } from "next";
 import Image from "next/image";
-import { FC } from "react";
+//import { FC } from "react";
 
 /**
  * ==> props interface
  */
-interface IProps {
+// interface IProps {
 
-}
+// }
 export const metadata: Metadata = {
   title: "Tastebite - about",
 };
 /**
  * ==> Component
  */
-const page: FC<IProps> = ({  }) => {
+// : FC<IProps>
+const page = ({  }) => {
   return (
     <>
       <section>

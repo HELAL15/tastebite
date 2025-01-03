@@ -1,17 +1,18 @@
 'use client'
-import { FC } from "react";
+//import { FC } from "react";
 
 /**
  * ==> props interface
  */
-interface IProps {
+// interface IProps {
 
-}
+// }
 
 /**
  * ==> Component
  */
-const globalError: FC<IProps> = ({  }) => {
+// : FC<IProps>
+const globalError = ({  }) => {
   return (
     <>
     <h1>error</h1>
